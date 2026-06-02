@@ -2,11 +2,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-
-
-
-
-
 function Shop(){
     const [cards, setCards] = useState([]);
 
@@ -31,7 +26,6 @@ function Shop(){
     }
     fetchproduct();
   }, []);
-
 
   return (
     <div className="cardscontainer">

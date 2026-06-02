@@ -1,4 +1,4 @@
-
+import { Link } from "react-router"
 
 function Home(){
     return(
@@ -11,7 +11,9 @@ function Home(){
             Nobis nostrum accusamus, in, quod ad neque
             natus, delectus ut quisquam facilis rem. Eum,
             aspernatur!</p>
-            <button className="homebtn">Shop now!</button>
+
+            <Link to="shop"><button className="homebtn">Shop now!</button></Link>
+            
        </div>
     </>
     )

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 
 function NavBar(){
@@ -10,9 +11,9 @@ function NavBar(){
                 <h1 className="mystore">mystore</h1>
             </div>
             <div className="rightnav">
-                <button>Home</button>
-                <button>Shop</button>
-                <button>Cart</button>
+                <Link to="/"><button>Home</button></Link>
+                <Link to="shop"><button>Shop</button></Link>
+                <Link to="cart"><button>Cart</button></Link>
             </div>
         </div>
     </>
