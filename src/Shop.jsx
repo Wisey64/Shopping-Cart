@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import ProductCard from "./ProductCard";
+import { useOutletContext } from "react-router";
 
 function Shop(){
     const [cards, setCards] = useState([]);
+    const { addToCart } = useOutletContext();
+
 
     function handleClick(id) {}
 
@@ -37,7 +40,8 @@ function Shop(){
           id={card.id}
           price={card.price}
           description={card.description}
-          onClick={handleClick}
+          addToCart={addToCart}
+
         />
       ))}
     </div>

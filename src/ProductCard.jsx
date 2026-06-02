@@ -1,8 +1,23 @@
-
+import { useState } from "react";
 import React from "react";
 
 
-function ProductCard({name, imgurl, id, price,description}){
+function ProductCard({name, imgurl, id, price,description, addToCart}){
+
+const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+    function handleAddToCart() {
+  addToCart(
+    {
+      id,
+      name,
+      price,
+    },
+    selectedQuantity
+  );
+}
+
+
     return(
     <>
       <div className="card">
@@ -11,11 +26,13 @@ function ProductCard({name, imgurl, id, price,description}){
         <p className="description">{description}</p>
         <h2 className="price">{price}</h2>
         <div className="quantitydiv">
-            <input type="number" className="quantityinput" />
+            <input type="number" className="quantityinput" 
+            value={selectedQuantity}
+            onChange={(e) => setSelectedQuantity(Number(e.target.value))} />
             <button className="increment">+</button>
             <button className="decrement">-</button>
         </div>
-        <button className="addtocart">AddtoCart</button>
+        <button className="addtocart"  onClick={handleAddToCart} >AddtoCart</button>
         
       </div>
     </>
