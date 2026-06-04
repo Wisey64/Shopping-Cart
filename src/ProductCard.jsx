@@ -17,6 +17,22 @@ const [selectedQuantity, setSelectedQuantity] = useState(1);
   );
 }
 
+function handleincrement(){
+     
+     setSelectedQuantity(prev => prev+1)
+
+}
+
+function handledecrement(){
+
+    
+
+    if(selectedQuantity===1) return
+    else{setSelectedQuantity(prev => prev-1)}
+
+     
+}
+
 
     return(
     <>
@@ -28,9 +44,10 @@ const [selectedQuantity, setSelectedQuantity] = useState(1);
         <div className="quantitydiv">
             <input type="number" className="quantityinput" 
             value={selectedQuantity}
-            onChange={(e) => setSelectedQuantity(Number(e.target.value))} />
-            <button className="increment">+</button>
-            <button className="decrement">-</button>
+            onChange={(e) =>{if(e.target.value<1) return
+            else setSelectedQuantity(Number(e.target.value))}} />
+            <button className="increment" onClick={handleincrement} >+</button>
+            <button className="decrement" onClick={handledecrement}>-</button>
         </div>
         <button className="addtocart"  onClick={handleAddToCart} >AddtoCart</button>
         
