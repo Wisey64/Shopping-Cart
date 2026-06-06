@@ -27,7 +27,7 @@ function App(){
   return(
     <>
       <NavBar></NavBar>
-      <Outlet context={{ addToCart }}></Outlet>
+      <Outlet context={{ addToCart, Cart }}></Outlet>
 
     </>
   )

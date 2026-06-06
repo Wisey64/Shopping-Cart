@@ -12,6 +12,7 @@ const [selectedQuantity, setSelectedQuantity] = useState(1);
       id,
       name,
       price,
+      imgurl
     },
     selectedQuantity
   );
