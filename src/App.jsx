@@ -8,6 +8,28 @@ import { Outlet } from 'react-router'
 function App(){
   const [Cart,setCart] = useState([])
 
+  function updateCartQuantity(id,quantity){
+    setCart(prevCart => prevCart.map((item)=> item.id === id
+        ? {...item, quantity: quantity}:item)
+         )
+    }
+
+  
+
+  function increaseCartQuantity(id){
+
+        setCart(prevCart => prevCart.map((item)=> item.id === id
+        ? {...item, quantity: item.quantity +1}:item)
+         )
+    }
+
+    function decreaseCartQuantity(id){
+        setCart(prevCart => prevCart.map((item)=> item.id === id && item.quantity >1
+        ? {...item, quantity: item.quantity -1}:item)
+         )
+        
+    }
+
   function addToCart(product, quantity){
         setCart((prevCart)=>{
           const existing = prevCart.find((item)=> item.id === product.id)
@@ -27,7 +49,8 @@ function App(){
   return(
     <>
       <NavBar></NavBar>
-      <Outlet context={{ addToCart, Cart }}></Outlet>
+      <Outlet context={{ addToCart,increaseCartQuantity,decreaseCartQuantity,
+        updateCartQuantity, Cart }}></Outlet>
 
     </>
   )
