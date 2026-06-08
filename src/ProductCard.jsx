@@ -35,21 +35,19 @@ function handledecrement(){
 }
 
 
+const shortDescription = description.split(' ').slice(0, 18).join(' ') + (description.split(' ').length > 18 ? '...' : '');
     return(
     <>
       <div className="card">
         <img src={imgurl} alt={name} className="productimg" />
         <h2 className="name">{name}</h2>
-        <p className="description">{description}</p>
+        <p className="description">{shortDescription}</p>
         <h2 className="price">{price}</h2>
         <div className="quantitydiv">
-            <input type="number" className="quantityinput" 
-            value={selectedQuantity}
-            onChange={(e) =>{if(e.target.value<1) return
-            else setSelectedQuantity(Number(e.target.value))}} />
-            <button className="increment" onClick={handleincrement} >+</button>
-            <button className="decrement" onClick={handledecrement}>-</button>
-        </div>
+  <button className="decrement" onClick={handledecrement}>-</button>
+  <span className="quantityinput">{selectedQuantity}</span>
+  <button className="increment" onClick={handleincrement}>+</button>
+</div>
         <button className="addtocart"  onClick={handleAddToCart} >AddtoCart</button>
         
       </div>

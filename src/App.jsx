@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import NavBar from './navbar'
 import Home from './Home'
 import Shop from './Shop'
@@ -13,6 +12,10 @@ function App(){
         ? {...item, quantity: quantity}:item)
          )
     }
+
+    function removeFromCart(id) {
+  setCart(prevCart => prevCart.filter(item => item.id !== id));
+}
 
   function getGrandTotal() {
   return Cart.reduce(
@@ -53,9 +56,9 @@ function App(){
   }
   return(
     <>
-      <NavBar></NavBar>
+      <NavBar cartCount={Cart.length}></NavBar>
       <Outlet context={{ addToCart,increaseCartQuantity,decreaseCartQuantity,
-        updateCartQuantity,getGrandTotal, Cart }}></Outlet>
+        updateCartQuantity,getGrandTotal, Cart,removeFromCart }}></Outlet>
 
     </>
   )

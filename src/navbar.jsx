@@ -6,7 +6,7 @@ function NavBar({ cartCount }) {
   return (
     <div className="navbar">
       <div className="leftnav">
-        <img src="" alt="logo" className="storelogo" />
+        <img src="src/assets/cart-icon-28356.png" alt="logo" className="storelogo" />
         <h1 className="mystore">lumina</h1>
       </div>
       <div className="rightnav">
