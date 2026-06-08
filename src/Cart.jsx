@@ -1,8 +1,9 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { useOutletContext } from "react-router";
+import Receipt from "./Receipt";
 function Cart(){
-    const { Cart,increaseCartQuantity,decreaseCartQuantity,updateCartQuantity } = useOutletContext();
+    const { Cart,increaseCartQuantity,decreaseCartQuantity,updateCartQuantity,getGrandTotal } = useOutletContext();
 
     return(
            <>
@@ -20,9 +21,11 @@ function Cart(){
           updateCartQuantity={updateCartQuantity}
           
           
+          
 
         />
       ))}
+        <Receipt></Receipt>
               </div>
            </>
         )

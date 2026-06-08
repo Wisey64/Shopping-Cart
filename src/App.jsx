@@ -14,7 +14,12 @@ function App(){
          )
     }
 
-  
+  function getGrandTotal() {
+  return Cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+}
 
   function increaseCartQuantity(id){
 
@@ -50,7 +55,7 @@ function App(){
     <>
       <NavBar></NavBar>
       <Outlet context={{ addToCart,increaseCartQuantity,decreaseCartQuantity,
-        updateCartQuantity, Cart }}></Outlet>
+        updateCartQuantity,getGrandTotal, Cart }}></Outlet>
 
     </>
   )

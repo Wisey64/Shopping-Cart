@@ -1,7 +1,8 @@
 import React from "react";
-
+import { useOutletContext } from "react-router";
 function CartItem({name,id,price,quantity,imgurl,
     decreaseCartQuantity,increaseCartQuantity,updateCartQuantity}){
+        const {Cart} = useOutletContext()
     return(<>
     <div className="cartitem">
         <img src={imgurl} alt={name} className="productimg" />
@@ -13,6 +14,8 @@ function CartItem({name,id,price,quantity,imgurl,
             onChange={(e) => updateCartQuantity(id, Number(e.target.value))} />
             <button className="increment" onClick={() => increaseCartQuantity(id)} >+</button>
             <button className="decrement" onClick={() => decreaseCartQuantity(id)}>-</button>
+            <p className="subtotal">your sub total is{price*quantity}</p>
+            
         </div>
     </div>
         </>)
